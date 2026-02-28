@@ -65,10 +65,10 @@ export function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`relative px-3 py-2 text-md font-medium transition-colors ${
                     isActive
                       ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                      : "text-primary/70 hover:text-primary"
                   }`}
                 >
                   {item.name}
