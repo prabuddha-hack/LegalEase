@@ -57,7 +57,7 @@ export default function LandingPage() {
       <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="w-full py-16 md:py-28 lg:py-36 relative overflow-hidden bg-background">
+      <section className="w-full py-12 md:py-14 relative overflow-hidden bg-background">
         {/* Diagonal grid texture */}
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
