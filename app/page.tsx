@@ -86,11 +86,8 @@ export default function LandingPage() {
 
               <div className="space-y-4">
                 <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-foreground">
-                  Justice Should
-                  <br />
-                  <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                    For All Indians
-                  </span>
+                  <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"></span>
+                  Simplifying Legal Access for All Indians
                 </h1>
                 <p className="max-w-[560px] text-lg leading-relaxed text-muted-foreground">
                   LegalEase makes the justice system accessible through
@@ -124,22 +121,24 @@ transition-all duration-200"
 
             {/* Right image with corner ornaments */}
             <motion.div
-              className="mx-auto lg:mx-0 relative"
+              className="mx-auto lg:mx-0 relative w-full max-w-[520px]"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-primary" />
-              <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-primary" />
-              <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-primary" />
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-primary" />
-              <div className="rounded overflow-hidden border border-primary/25 shadow-[0_0_60px_hsl(var(--primary)/0.12),0_20px_60px_hsl(0_0%_0%/0.3)]">
+              {/* Corner ornaments */}
+              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-primary z-10" />
+              <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-primary z-10" />
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-primary z-10" />
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-primary z-10" />
+
+              <div className="relative w-full aspect-[4/3] rounded overflow-hidden border border-primary/25 shadow-[0_0_60px_hsl(var(--primary)/0.12),0_20px_60px_hsl(0_0%_0%/0.3)]">
                 <Image
                   src="/image.png"
-                  width={500}
-                  height={500}
                   alt="Legal assistance illustration"
-                  className="block"
+                  fill
+                  className="object-cover scale-[1.02]"
+                  priority
                 />
               </div>
             </motion.div>
