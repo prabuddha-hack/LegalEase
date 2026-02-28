@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Star, Filter, Search } from "lucide-react";
+import { MapPin, Phone, Mail, Filter, Search } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -31,7 +31,6 @@ type LegalHelp = {
   location: string;
   state: string;
   languages: string[];
-  rating: number;
   contact: {
     phone?: string;
     email?: string;
@@ -57,14 +56,13 @@ export default function HelpPage() {
       location: "New Delhi",
       state: "Delhi",
       languages: ["Hindi", "English", "Punjabi"],
-      rating: 4.8,
       contact: {
         phone: "+91-7223456789",
         email: "contact@legalaid.org",
         website: "www.legalaid.org",
       },
       availability: "Mon-Fri, 9 AM - 5 PM",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/placeholder.svg",
     },
     {
       id: "2",
@@ -74,13 +72,12 @@ export default function HelpPage() {
       location: "Mumbai",
       state: "Maharashtra",
       languages: ["Hindi", "English", "Marathi"],
-      rating: 4.9,
       contact: {
         phone: "+91-7487654321",
         email: "priya@sharmalegal.com",
       },
       availability: "By appointment",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/placeholder.svg",
     },
     {
       id: "3",
@@ -94,14 +91,13 @@ export default function HelpPage() {
       location: "Bangalore",
       state: "Karnataka",
       languages: ["English", "Kannada", "Tamil"],
-      rating: 4.5,
       contact: {
         phone: "+91-8012345678",
         email: "help@communitylegal.org",
         website: "www.communitylegal.org",
       },
       availability: "Mon-Sat, 10 AM - 6 PM",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/placeholder.svg",
     },
     {
       id: "4",
@@ -111,14 +107,13 @@ export default function HelpPage() {
       location: "Chennai",
       state: "Tamil Nadu",
       languages: ["Tamil", "English", "Telugu"],
-      rating: 4.2,
       contact: {
         phone: "+91-8923456789",
         email: "dlsa.chennai@gov.in",
         website: "www.tnslsa.gov.in",
       },
       availability: "Mon-Fri, 10 AM - 5 PM",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/placeholder.svg",
     },
     {
       id: "5",
@@ -128,13 +123,12 @@ export default function HelpPage() {
       location: "Kolkata",
       state: "West Bengal",
       languages: ["Bengali", "Hindi", "English"],
-      rating: 4.7,
       contact: {
         phone: "+91-8698765432",
         email: "rajesh@kumarlaw.com",
       },
       availability: "By appointment",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/placeholder.svg",
     },
     {
       id: "6",
@@ -148,14 +142,13 @@ export default function HelpPage() {
       location: "Hyderabad",
       state: "Telangana",
       languages: ["Telugu", "English", "Hindi"],
-      rating: 4.6,
       contact: {
         phone: "+91-8987654321",
         email: "support@wri.org",
         website: "www.wri.org",
       },
       availability: "24/7 Helpline",
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/placeholder.svg",
     },
   ];
 
@@ -180,32 +173,6 @@ export default function HelpPage() {
 
     return matchesSearch && matchesState && matchesType;
   });
-
-  // Function to render star rating
-  const renderRating = (rating: number) => {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-
-    return (
-      <div className="flex items-center">
-        {[...Array(5)].map((_, i) => (
-          <Star
-            key={i}
-            className={`h-4 w-4 ${
-              i < fullStars
-                ? "text-yellow-400 fill-yellow-400"
-                : i === fullStars && hasHalfStar
-                  ? "text-yellow-400 fill-yellow-400"
-                  : "text-slate-300"
-            }`}
-          />
-        ))}
-        <span className="ml-1 text-sm text-slate-600 dark:text-slate-200">
-          {rating.toFixed(1)}
-        </span>
-      </div>
-    );
-  };
 
   // Handle search and filter changes
   const handleSearch = () => {
@@ -328,10 +295,7 @@ export default function HelpPage() {
                           {provider.name}
                         </CardTitle>
                         <CardDescription>
-                          <Badge variant="outline" className="mr-1">
-                            {provider.type}
-                          </Badge>
-                          {renderRating(provider.rating)}
+                          <Badge variant="outline">{provider.type}</Badge>
                         </CardDescription>
                       </div>
                     </div>
