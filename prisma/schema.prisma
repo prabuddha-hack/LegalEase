@@ -123,24 +123,6 @@ model Document {
 }
 
 
-
-model LegalRightCategory {
-  id        String       @id @default(cuid())
-  name      String       @unique
-  rights    LegalRight[]
-}
-
-model LegalRight {
-  id          String   @id @default(cuid())
-  title       String
-  description String
-  simplified  String
-  category    LegalRightCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  categoryId  String
-}
-
-
-
 model LegalServiceProvider {
   id          String      @id @default(cuid())
   name        String
